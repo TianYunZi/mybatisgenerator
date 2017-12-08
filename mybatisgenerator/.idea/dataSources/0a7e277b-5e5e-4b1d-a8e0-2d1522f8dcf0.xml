@@ -1,0 +1,443 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="siebre-admin@192.168.18.158">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.0">
+    <root id="1"/>
+    <schema id="2" parent="1" name="siebre-admin">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="information_schema"/>
+    <schema id="4" parent="1" name="itx"/>
+    <schema id="5" parent="1" name="mysql"/>
+    <schema id="6" parent="1" name="performance_schema"/>
+    <schema id="7" parent="1" name="sys"/>
+    <table id="8" parent="2" name="sys_authority">
+      <Comment>`authority`</Comment>
+    </table>
+    <table id="9" parent="2" name="sys_authority_resource">
+      <Comment>`authority_resource`</Comment>
+    </table>
+    <table id="10" parent="2" name="sys_resource">
+      <Comment>`resource`</Comment>
+    </table>
+    <table id="11" parent="2" name="sys_role">
+      <Comment>`role`</Comment>
+    </table>
+    <table id="12" parent="2" name="sys_role_authority">
+      <Comment>`role_authority`</Comment>
+    </table>
+    <table id="13" parent="2" name="sys_user">
+      <Comment>`user`</Comment>
+    </table>
+    <table id="14" parent="2" name="sys_user_role">
+      <Comment>`user_role`</Comment>
+    </table>
+    <column id="15" parent="8" name="name">
+      <Position>1</Position>
+      <Comment>name</Comment>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="16" parent="8" name="code">
+      <Position>2</Position>
+      <Comment>code</Comment>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="17" parent="8" name="description">
+      <Position>3</Position>
+      <Comment>description</Comment>
+      <DataType>varchar(500)|0</DataType>
+    </column>
+    <column id="18" parent="8" name="id">
+      <Position>4</Position>
+      <Comment>id</Comment>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="19" parent="8" name="create_user">
+      <Position>5</Position>
+      <Comment>createUser</Comment>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="20" parent="8" name="create_date">
+      <Position>6</Position>
+      <Comment>createDate</Comment>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="21" parent="8" name="update_user">
+      <Position>7</Position>
+      <Comment>updateUser</Comment>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="22" parent="8" name="update_date">
+      <Position>8</Position>
+      <Comment>updateDate</Comment>
+      <DataType>datetime|0</DataType>
+    </column>
+    <index id="23" parent="8" name="code">
+      <ColNames>code</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="24" parent="8" name="code_2">
+      <ColNames>code</ColNames>
+    </index>
+    <index id="25" parent="8" name="id">
+      <ColNames>id</ColNames>
+    </index>
+    <index id="26" parent="8" name="name">
+      <ColNames>name</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="27" parent="8" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="28" parent="8" name="name">
+      <ColNames>name</ColNames>
+      <UnderlyingIndexName>name</UnderlyingIndexName>
+    </key>
+    <key id="29" parent="8" name="code">
+      <ColNames>code</ColNames>
+      <UnderlyingIndexName>code</UnderlyingIndexName>
+    </key>
+    <column id="30" parent="9" name="authority_id">
+      <Position>1</Position>
+      <Comment>authorityId</Comment>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="31" parent="9" name="resource_id">
+      <Position>2</Position>
+      <Comment>resourceId</Comment>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <index id="32" parent="9" name="resource_id">
+      <ColNames>resource_id</ColNames>
+    </index>
+    <key id="33" parent="9" name="PRIMARY">
+      <ColNames>authority_id
+resource_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="34" parent="9" name="sys_authority_resource_ibfk_1">
+      <ColNames>authority_id</ColNames>
+      <RefSchemaName>siebre-admin</RefSchemaName>
+      <RefTableName>sys_authority</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="35" parent="9" name="sys_authority_resource_ibfk_2">
+      <ColNames>resource_id</ColNames>
+      <RefSchemaName>siebre-admin</RefSchemaName>
+      <RefTableName>sys_resource</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="36" parent="10" name="url">
+      <Position>1</Position>
+      <Comment>url</Comment>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="37" parent="10" name="name">
+      <Position>2</Position>
+      <Comment>name</Comment>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="38" parent="10" name="code">
+      <Position>3</Position>
+      <Comment>code</Comment>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="39" parent="10" name="description">
+      <Position>4</Position>
+      <Comment>description</Comment>
+      <DataType>varchar(500)|0</DataType>
+    </column>
+    <column id="40" parent="10" name="id">
+      <Position>5</Position>
+      <Comment>id</Comment>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="41" parent="10" name="create_user">
+      <Position>6</Position>
+      <Comment>createUser</Comment>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="42" parent="10" name="create_date">
+      <Position>7</Position>
+      <Comment>createDate</Comment>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="43" parent="10" name="update_user">
+      <Position>8</Position>
+      <Comment>updateUser</Comment>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="44" parent="10" name="update_date">
+      <Position>9</Position>
+      <Comment>updateDate</Comment>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="45" parent="10" name="parentid">
+      <Position>10</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <index id="46" parent="10" name="code">
+      <ColNames>code</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="47" parent="10" name="code_2">
+      <ColNames>code</ColNames>
+    </index>
+    <index id="48" parent="10" name="id">
+      <ColNames>id</ColNames>
+    </index>
+    <index id="49" parent="10" name="name">
+      <ColNames>name</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="50" parent="10" name="parentid">
+      <ColNames>parentid</ColNames>
+    </index>
+    <key id="51" parent="10" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="52" parent="10" name="name">
+      <ColNames>name</ColNames>
+      <UnderlyingIndexName>name</UnderlyingIndexName>
+    </key>
+    <key id="53" parent="10" name="code">
+      <ColNames>code</ColNames>
+      <UnderlyingIndexName>code</UnderlyingIndexName>
+    </key>
+    <foreign-key id="54" parent="10" name="sys_resource_ibfk_1">
+      <ColNames>parentid</ColNames>
+      <RefSchemaName>siebre-admin</RefSchemaName>
+      <RefTableName>sys_resource</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="55" parent="11" name="name">
+      <Position>1</Position>
+      <Comment>name</Comment>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="56" parent="11" name="code">
+      <Position>2</Position>
+      <Comment>code</Comment>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="57" parent="11" name="description">
+      <Position>3</Position>
+      <Comment>description</Comment>
+      <DataType>varchar(500)|0</DataType>
+    </column>
+    <column id="58" parent="11" name="id">
+      <Position>4</Position>
+      <Comment>id</Comment>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="59" parent="11" name="create_user">
+      <Position>5</Position>
+      <Comment>createUser</Comment>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="60" parent="11" name="create_date">
+      <Position>6</Position>
+      <Comment>createDate</Comment>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="61" parent="11" name="update_user">
+      <Position>7</Position>
+      <Comment>updateUser</Comment>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="62" parent="11" name="update_date">
+      <Position>8</Position>
+      <Comment>updateDate</Comment>
+      <DataType>datetime|0</DataType>
+    </column>
+    <index id="63" parent="11" name="code">
+      <ColNames>code</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="64" parent="11" name="code_2">
+      <ColNames>code</ColNames>
+    </index>
+    <index id="65" parent="11" name="id">
+      <ColNames>id</ColNames>
+    </index>
+    <index id="66" parent="11" name="name">
+      <ColNames>name</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="67" parent="11" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="68" parent="11" name="name">
+      <ColNames>name</ColNames>
+      <UnderlyingIndexName>name</UnderlyingIndexName>
+    </key>
+    <key id="69" parent="11" name="code">
+      <ColNames>code</ColNames>
+      <UnderlyingIndexName>code</UnderlyingIndexName>
+    </key>
+    <column id="70" parent="12" name="role_id">
+      <Position>1</Position>
+      <Comment>roleId</Comment>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="71" parent="12" name="authority_id">
+      <Position>2</Position>
+      <Comment>authorityId</Comment>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="72" parent="12" name="authority_id">
+      <ColNames>authority_id</ColNames>
+    </index>
+    <key id="73" parent="12" name="PRIMARY">
+      <ColNames>role_id
+authority_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="74" parent="12" name="sys_role_authority_ibfk_2">
+      <ColNames>role_id</ColNames>
+      <RefSchemaName>siebre-admin</RefSchemaName>
+      <RefTableName>sys_role</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="75" parent="12" name="sys_role_authority_ibfk_1">
+      <ColNames>authority_id</ColNames>
+      <RefSchemaName>siebre-admin</RefSchemaName>
+      <RefTableName>sys_authority</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="76" parent="13" name="username">
+      <Position>1</Position>
+      <Comment>username</Comment>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="77" parent="13" name="password">
+      <Position>2</Position>
+      <Comment>password</Comment>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="78" parent="13" name="email">
+      <Position>3</Position>
+      <Comment>email</Comment>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="79" parent="13" name="mobile">
+      <Position>4</Position>
+      <Comment>mobile</Comment>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="80" parent="13" name="nickname">
+      <Position>5</Position>
+      <Comment>nickname</Comment>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="81" parent="13" name="active">
+      <Position>6</Position>
+      <Comment>active</Comment>
+      <DataType>tinyint(3)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;1&apos;</DefaultExpression>
+    </column>
+    <column id="82" parent="13" name="id">
+      <Position>7</Position>
+      <Comment>id</Comment>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="83" parent="13" name="create_user">
+      <Position>8</Position>
+      <Comment>createUser</Comment>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="84" parent="13" name="create_date">
+      <Position>9</Position>
+      <Comment>createDate</Comment>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="85" parent="13" name="update_user">
+      <Position>10</Position>
+      <Comment>updateUser</Comment>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="86" parent="13" name="update_date">
+      <Position>11</Position>
+      <Comment>updateDate</Comment>
+      <DataType>datetime|0</DataType>
+    </column>
+    <index id="87" parent="13" name="id">
+      <ColNames>id</ColNames>
+    </index>
+    <index id="88" parent="13" name="username">
+      <ColNames>username</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="89" parent="13" name="username_2">
+      <ColNames>username</ColNames>
+    </index>
+    <key id="90" parent="13" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="91" parent="13" name="username">
+      <ColNames>username</ColNames>
+      <UnderlyingIndexName>username</UnderlyingIndexName>
+    </key>
+    <column id="92" parent="14" name="user_id">
+      <Position>1</Position>
+      <Comment>userId</Comment>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="93" parent="14" name="role_id">
+      <Position>2</Position>
+      <Comment>roleId</Comment>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="94" parent="14" name="role_id">
+      <ColNames>role_id</ColNames>
+    </index>
+    <key id="95" parent="14" name="PRIMARY">
+      <ColNames>user_id
+role_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="96" parent="14" name="sys_user_role_ibfk_1">
+      <ColNames>user_id</ColNames>
+      <RefSchemaName>siebre-admin</RefSchemaName>
+      <RefTableName>sys_user</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="97" parent="14" name="sys_user_role_ibfk_2">
+      <ColNames>role_id</ColNames>
+      <RefSchemaName>siebre-admin</RefSchemaName>
+      <RefTableName>sys_role</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+  </database-model>
+</dataSource>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.siebre.uaa.commissionSettingsEntry.mapper.CommissionSettingsEntryMapper" >
+  <resultMap id="BaseResultMap" type="com.siebre.uaa.commissionSettingsEntry.entity.CommissionSettingsEntry" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="paymentPeriod" property="paymentperiod" jdbcType="VARCHAR" />
+    <result column="rate" property="rate" jdbcType="DECIMAL" />
+    <result column="CommissionSettingsId" property="commissionsettingsid" jdbcType="BIGINT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, paymentPeriod, rate, CommissionSettingsId
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from Commission_Settings_Entry
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from Commission_Settings_Entry
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.siebre.uaa.commissionSettingsEntry.entity.CommissionSettingsEntry" >
+    insert into Commission_Settings_Entry (id, paymentPeriod, rate, 
+      CommissionSettingsId)
+    values (#{id,jdbcType=BIGINT}, #{paymentperiod,jdbcType=VARCHAR}, #{rate,jdbcType=DECIMAL}, 
+      #{commissionsettingsid,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.siebre.uaa.commissionSettingsEntry.entity.CommissionSettingsEntry" >
+    insert into Commission_Settings_Entry
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="paymentperiod != null" >
+        paymentPeriod,
+      </if>
+      <if test="rate != null" >
+        rate,
+      </if>
+      <if test="commissionsettingsid != null" >
+        CommissionSettingsId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="paymentperiod != null" >
+        #{paymentperiod,jdbcType=VARCHAR},
+      </if>
+      <if test="rate != null" >
+        #{rate,jdbcType=DECIMAL},
+      </if>
+      <if test="commissionsettingsid != null" >
+        #{commissionsettingsid,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.siebre.uaa.commissionSettingsEntry.entity.CommissionSettingsEntry" >
+    update Commission_Settings_Entry
+    <set >
+      <if test="paymentperiod != null" >
+        paymentPeriod = #{paymentperiod,jdbcType=VARCHAR},
+      </if>
+      <if test="rate != null" >
+        rate = #{rate,jdbcType=DECIMAL},
+      </if>
+      <if test="commissionsettingsid != null" >
+        CommissionSettingsId = #{commissionsettingsid,jdbcType=BIGINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.siebre.uaa.commissionSettingsEntry.entity.CommissionSettingsEntry" >
+    update Commission_Settings_Entry
+    set paymentPeriod = #{paymentperiod,jdbcType=VARCHAR},
+      rate = #{rate,jdbcType=DECIMAL},
+      CommissionSettingsId = #{commissionsettingsid,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

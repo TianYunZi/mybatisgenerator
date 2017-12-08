@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.siebre.uaa.publishedproducts.mapper.PublishedProductsMapper">
+  <resultMap id="BaseResultMap" type="com.siebre.uaa.publishedproducts.entity.PublishedProducts">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="productId" jdbcType="BIGINT" property="productid" />
+    <result column="organizationId" jdbcType="BIGINT" property="organizationid" />
+    <result column="startDate" jdbcType="DATE" property="startdate" />
+    <result column="endDate" jdbcType="DATE" property="enddate" />
+    <result column="CommissionSettingsId" jdbcType="BIGINT" property="commissionsettingsid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, productId, organizationId, startDate, endDate, CommissionSettingsId
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from Published_Products
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from Published_Products
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.siebre.uaa.publishedproducts.entity.PublishedProducts">
+    insert into Published_Products (id, productId, organizationId, 
+      startDate, endDate, CommissionSettingsId
+      )
+    values (#{id,jdbcType=BIGINT}, #{productid,jdbcType=BIGINT}, #{organizationid,jdbcType=BIGINT}, 
+      #{startdate,jdbcType=DATE}, #{enddate,jdbcType=DATE}, #{commissionsettingsid,jdbcType=BIGINT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.siebre.uaa.publishedproducts.entity.PublishedProducts">
+    insert into Published_Products
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="productid != null">
+        productId,
+      </if>
+      <if test="organizationid != null">
+        organizationId,
+      </if>
+      <if test="startdate != null">
+        startDate,
+      </if>
+      <if test="enddate != null">
+        endDate,
+      </if>
+      <if test="commissionsettingsid != null">
+        CommissionSettingsId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="productid != null">
+        #{productid,jdbcType=BIGINT},
+      </if>
+      <if test="organizationid != null">
+        #{organizationid,jdbcType=BIGINT},
+      </if>
+      <if test="startdate != null">
+        #{startdate,jdbcType=DATE},
+      </if>
+      <if test="enddate != null">
+        #{enddate,jdbcType=DATE},
+      </if>
+      <if test="commissionsettingsid != null">
+        #{commissionsettingsid,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.siebre.uaa.publishedproducts.entity.PublishedProducts">
+    update Published_Products
+    <set>
+      <if test="productid != null">
+        productId = #{productid,jdbcType=BIGINT},
+      </if>
+      <if test="organizationid != null">
+        organizationId = #{organizationid,jdbcType=BIGINT},
+      </if>
+      <if test="startdate != null">
+        startDate = #{startdate,jdbcType=DATE},
+      </if>
+      <if test="enddate != null">
+        endDate = #{enddate,jdbcType=DATE},
+      </if>
+      <if test="commissionsettingsid != null">
+        CommissionSettingsId = #{commissionsettingsid,jdbcType=BIGINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.siebre.uaa.publishedproducts.entity.PublishedProducts">
+    update Published_Products
+    set productId = #{productid,jdbcType=BIGINT},
+      organizationId = #{organizationid,jdbcType=BIGINT},
+      startDate = #{startdate,jdbcType=DATE},
+      endDate = #{enddate,jdbcType=DATE},
+      CommissionSettingsId = #{commissionsettingsid,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <resultMap id="BaseResultMap" type="com.siebre.uaa.organization.entity.PublishedProducts">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="productId" jdbcType="BIGINT" property="productid" />
+    <result column="organizationId" jdbcType="BIGINT" property="organizationid" />
+    <result column="startDate" jdbcType="DATE" property="startdate" />
+    <result column="endDate" jdbcType="DATE" property="enddate" />
+    <result column="CommissionSettingsId" jdbcType="BIGINT" property="commissionsettingsid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, productId, organizationId, startDate, endDate, CommissionSettingsId
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from Published_Products
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from Published_Products
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.siebre.uaa.organization.entity.PublishedProducts">
+    insert into Published_Products (id, productId, organizationId, 
+      startDate, endDate, CommissionSettingsId
+      )
+    values (#{id,jdbcType=BIGINT}, #{productid,jdbcType=BIGINT}, #{organizationid,jdbcType=BIGINT}, 
+      #{startdate,jdbcType=DATE}, #{enddate,jdbcType=DATE}, #{commissionsettingsid,jdbcType=BIGINT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.siebre.uaa.organization.entity.PublishedProducts">
+    insert into Published_Products
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="productid != null">
+        productId,
+      </if>
+      <if test="organizationid != null">
+        organizationId,
+      </if>
+      <if test="startdate != null">
+        startDate,
+      </if>
+      <if test="enddate != null">
+        endDate,
+      </if>
+      <if test="commissionsettingsid != null">
+        CommissionSettingsId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="productid != null">
+        #{productid,jdbcType=BIGINT},
+      </if>
+      <if test="organizationid != null">
+        #{organizationid,jdbcType=BIGINT},
+      </if>
+      <if test="startdate != null">
+        #{startdate,jdbcType=DATE},
+      </if>
+      <if test="enddate != null">
+        #{enddate,jdbcType=DATE},
+      </if>
+      <if test="commissionsettingsid != null">
+        #{commissionsettingsid,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.siebre.uaa.organization.entity.PublishedProducts">
+    update Published_Products
+    <set>
+      <if test="productid != null">
+        productId = #{productid,jdbcType=BIGINT},
+      </if>
+      <if test="organizationid != null">
+        organizationId = #{organizationid,jdbcType=BIGINT},
+      </if>
+      <if test="startdate != null">
+        startDate = #{startdate,jdbcType=DATE},
+      </if>
+      <if test="enddate != null">
+        endDate = #{enddate,jdbcType=DATE},
+      </if>
+      <if test="commissionsettingsid != null">
+        CommissionSettingsId = #{commissionsettingsid,jdbcType=BIGINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.siebre.uaa.organization.entity.PublishedProducts">
+    update Published_Products
+    set productId = #{productid,jdbcType=BIGINT},
+      organizationId = #{organizationid,jdbcType=BIGINT},
+      startDate = #{startdate,jdbcType=DATE},
+      endDate = #{enddate,jdbcType=DATE},
+      CommissionSettingsId = #{commissionsettingsid,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

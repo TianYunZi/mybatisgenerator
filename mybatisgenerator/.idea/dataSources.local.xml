@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="siebre-admin@192.168.18.158" uuid="0a7e277b-5e5e-4b1d-a8e0-2d1522f8dcf0">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" />
+      <secret-storage>master_key</secret-storage>
+      <user-name>root</user-name>
+      <resolve-scope>siebre-admin:</resolve-scope>
+    </data-source>
+  </component>
+</project>

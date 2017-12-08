@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.siebre.uaa.commissionSettings.mapper.CommissionSettingsMapper" >
+  <resultMap id="BaseResultMap" type="com.siebre.uaa.commissionSettings.entity.CommissionSettings" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="single" property="single" jdbcType="DECIMAL" />
+    <result column="restTermsDescription" property="resttermsdescription" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, single, restTermsDescription
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from Commission_Settings
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from Commission_Settings
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.siebre.uaa.commissionSettings.entity.CommissionSettings" >
+    insert into Commission_Settings (id, single, restTermsDescription
+      )
+    values (#{id,jdbcType=BIGINT}, #{single,jdbcType=DECIMAL}, #{resttermsdescription,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.siebre.uaa.commissionSettings.entity.CommissionSettings" >
+    insert into Commission_Settings
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="single != null" >
+        single,
+      </if>
+      <if test="resttermsdescription != null" >
+        restTermsDescription,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="single != null" >
+        #{single,jdbcType=DECIMAL},
+      </if>
+      <if test="resttermsdescription != null" >
+        #{resttermsdescription,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.siebre.uaa.commissionSettings.entity.CommissionSettings" >
+    update Commission_Settings
+    <set >
+      <if test="single != null" >
+        single = #{single,jdbcType=DECIMAL},
+      </if>
+      <if test="resttermsdescription != null" >
+        restTermsDescription = #{resttermsdescription,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.siebre.uaa.commissionSettings.entity.CommissionSettings" >
+    update Commission_Settings
+    set single = #{single,jdbcType=DECIMAL},
+      restTermsDescription = #{resttermsdescription,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

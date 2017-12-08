@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.siebre.uaa.organization.mapper.OrganizationMapper" >
+  <resultMap id="BaseResultMap" type="com.siebre.uaa.organization.entity.Organization" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="organization_type" property="organizationType" jdbcType="INTEGER" />
+    <result column="organization_name" property="organizationName" jdbcType="VARCHAR" />
+    <result column="introduction" property="introduction" jdbcType="VARCHAR" />
+    <result column="logo_path" property="logoPath" jdbcType="VARCHAR" />
+    <result column="address_line" property="addressLine" jdbcType="VARCHAR" />
+    <result column="post_code" property="postCode" jdbcType="VARCHAR" />
+    <result column="commission_settlement_date" property="commissionSettlementDate" jdbcType="VARCHAR" />
+    <result column="commission_settlement_method" property="commissionSettlementMethod" jdbcType="INTEGER" />
+    <result column="parent_organization" property="parentOrganization" jdbcType="BIGINT" />
+    <result column="is_siebre_agent" property="isSiebreAgent" jdbcType="BIT" />
+    <result column="parent_siebre_agent" property="parentSiebreAgent" jdbcType="BIGINT" />
+    <result column="associated_finacial_service_org" property="associatedFinacialServiceOrg" jdbcType="BIGINT" />
+    <result column="credit_limit" property="creditLimit" jdbcType="DECIMAL" />
+    <result column="margin" property="margin" jdbcType="DECIMAL" />
+    <result column="bank_account_id" property="bankAccountId" jdbcType="BIGINT" />
+    <result column="create_user" property="createUser" jdbcType="VARCHAR" />
+    <result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
+    <result column="update_user" property="updateUser" jdbcType="VARCHAR" />
+    <result column="update_date" property="updateDate" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, organization_type, organization_name, introduction, logo_path, address_line, 
+    post_code, commission_settlement_date, commission_settlement_method, parent_organization, 
+    is_siebre_agent, parent_siebre_agent, associated_finacial_service_org, credit_limit, 
+    margin, bank_account_id, create_user, create_date, update_user, update_date
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from sys_organization
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from sys_organization
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.siebre.uaa.organization.entity.Organization" >
+    insert into sys_organization (id, organization_type, organization_name, 
+      introduction, logo_path, address_line, 
+      post_code, commission_settlement_date, commission_settlement_method, 
+      parent_organization, is_siebre_agent, parent_siebre_agent, 
+      associated_finacial_service_org, credit_limit, 
+      margin, bank_account_id, create_user, 
+      create_date, update_user, update_date
+      )
+    values (#{id,jdbcType=BIGINT}, #{organizationType,jdbcType=INTEGER}, #{organizationName,jdbcType=VARCHAR}, 
+      #{introduction,jdbcType=VARCHAR}, #{logoPath,jdbcType=VARCHAR}, #{addressLine,jdbcType=VARCHAR}, 
+      #{postCode,jdbcType=VARCHAR}, #{commissionSettlementDate,jdbcType=VARCHAR}, #{commissionSettlementMethod,jdbcType=INTEGER}, 
+      #{parentOrganization,jdbcType=BIGINT}, #{isSiebreAgent,jdbcType=BIT}, #{parentSiebreAgent,jdbcType=BIGINT}, 
+      #{associatedFinacialServiceOrg,jdbcType=BIGINT}, #{creditLimit,jdbcType=DECIMAL}, 
+      #{margin,jdbcType=DECIMAL}, #{bankAccountId,jdbcType=BIGINT}, #{createUser,jdbcType=VARCHAR}, 
+      #{createDate,jdbcType=TIMESTAMP}, #{updateUser,jdbcType=VARCHAR}, #{updateDate,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.siebre.uaa.organization.entity.Organization" >
+    insert into sys_organization
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="organizationType != null" >
+        organization_type,
+      </if>
+      <if test="organizationName != null" >
+        organization_name,
+      </if>
+      <if test="introduction != null" >
+        introduction,
+      </if>
+      <if test="logoPath != null" >
+        logo_path,
+      </if>
+      <if test="addressLine != null" >
+        address_line,
+      </if>
+      <if test="postCode != null" >
+        post_code,
+      </if>
+      <if test="commissionSettlementDate != null" >
+        commission_settlement_date,
+      </if>
+      <if test="commissionSettlementMethod != null" >
+        commission_settlement_method,
+      </if>
+      <if test="parentOrganization != null" >
+        parent_organization,
+      </if>
+      <if test="isSiebreAgent != null" >
+        is_siebre_agent,
+      </if>
+      <if test="parentSiebreAgent != null" >
+        parent_siebre_agent,
+      </if>
+      <if test="associatedFinacialServiceOrg != null" >
+        associated_finacial_service_org,
+      </if>
+      <if test="creditLimit != null" >
+        credit_limit,
+      </if>
+      <if test="margin != null" >
+        margin,
+      </if>
+      <if test="bankAccountId != null" >
+        bank_account_id,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createDate != null" >
+        create_date,
+      </if>
+      <if test="updateUser != null" >
+        update_user,
+      </if>
+      <if test="updateDate != null" >
+        update_date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="organizationType != null" >
+        #{organizationType,jdbcType=INTEGER},
+      </if>
+      <if test="organizationName != null" >
+        #{organizationName,jdbcType=VARCHAR},
+      </if>
+      <if test="introduction != null" >
+        #{introduction,jdbcType=VARCHAR},
+      </if>
+      <if test="logoPath != null" >
+        #{logoPath,jdbcType=VARCHAR},
+      </if>
+      <if test="addressLine != null" >
+        #{addressLine,jdbcType=VARCHAR},
+      </if>
+      <if test="postCode != null" >
+        #{postCode,jdbcType=VARCHAR},
+      </if>
+      <if test="commissionSettlementDate != null" >
+        #{commissionSettlementDate,jdbcType=VARCHAR},
+      </if>
+      <if test="commissionSettlementMethod != null" >
+        #{commissionSettlementMethod,jdbcType=INTEGER},
+      </if>
+      <if test="parentOrganization != null" >
+        #{parentOrganization,jdbcType=BIGINT},
+      </if>
+      <if test="isSiebreAgent != null" >
+        #{isSiebreAgent,jdbcType=BIT},
+      </if>
+      <if test="parentSiebreAgent != null" >
+        #{parentSiebreAgent,jdbcType=BIGINT},
+      </if>
+      <if test="associatedFinacialServiceOrg != null" >
+        #{associatedFinacialServiceOrg,jdbcType=BIGINT},
+      </if>
+      <if test="creditLimit != null" >
+        #{creditLimit,jdbcType=DECIMAL},
+      </if>
+      <if test="margin != null" >
+        #{margin,jdbcType=DECIMAL},
+      </if>
+      <if test="bankAccountId != null" >
+        #{bankAccountId,jdbcType=BIGINT},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null" >
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateUser != null" >
+        #{updateUser,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null" >
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.siebre.uaa.organization.entity.Organization" >
+    update sys_organization
+    <set >
+      <if test="organizationType != null" >
+        organization_type = #{organizationType,jdbcType=INTEGER},
+      </if>
+      <if test="organizationName != null" >
+        organization_name = #{organizationName,jdbcType=VARCHAR},
+      </if>
+      <if test="introduction != null" >
+        introduction = #{introduction,jdbcType=VARCHAR},
+      </if>
+      <if test="logoPath != null" >
+        logo_path = #{logoPath,jdbcType=VARCHAR},
+      </if>
+      <if test="addressLine != null" >
+        address_line = #{addressLine,jdbcType=VARCHAR},
+      </if>
+      <if test="postCode != null" >
+        post_code = #{postCode,jdbcType=VARCHAR},
+      </if>
+      <if test="commissionSettlementDate != null" >
+        commission_settlement_date = #{commissionSettlementDate,jdbcType=VARCHAR},
+      </if>
+      <if test="commissionSettlementMethod != null" >
+        commission_settlement_method = #{commissionSettlementMethod,jdbcType=INTEGER},
+      </if>
+      <if test="parentOrganization != null" >
+        parent_organization = #{parentOrganization,jdbcType=BIGINT},
+      </if>
+      <if test="isSiebreAgent != null" >
+        is_siebre_agent = #{isSiebreAgent,jdbcType=BIT},
+      </if>
+      <if test="parentSiebreAgent != null" >
+        parent_siebre_agent = #{parentSiebreAgent,jdbcType=BIGINT},
+      </if>
+      <if test="associatedFinacialServiceOrg != null" >
+        associated_finacial_service_org = #{associatedFinacialServiceOrg,jdbcType=BIGINT},
+      </if>
+      <if test="creditLimit != null" >
+        credit_limit = #{creditLimit,jdbcType=DECIMAL},
+      </if>
+      <if test="margin != null" >
+        margin = #{margin,jdbcType=DECIMAL},
+      </if>
+      <if test="bankAccountId != null" >
+        bank_account_id = #{bankAccountId,jdbcType=BIGINT},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null" >
+        create_date = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateUser != null" >
+        update_user = #{updateUser,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null" >
+        update_date = #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.siebre.uaa.organization.entity.Organization" >
+    update sys_organization
+    set organization_type = #{organizationType,jdbcType=INTEGER},
+      organization_name = #{organizationName,jdbcType=VARCHAR},
+      introduction = #{introduction,jdbcType=VARCHAR},
+      logo_path = #{logoPath,jdbcType=VARCHAR},
+      address_line = #{addressLine,jdbcType=VARCHAR},
+      post_code = #{postCode,jdbcType=VARCHAR},
+      commission_settlement_date = #{commissionSettlementDate,jdbcType=VARCHAR},
+      commission_settlement_method = #{commissionSettlementMethod,jdbcType=INTEGER},
+      parent_organization = #{parentOrganization,jdbcType=BIGINT},
+      is_siebre_agent = #{isSiebreAgent,jdbcType=BIT},
+      parent_siebre_agent = #{parentSiebreAgent,jdbcType=BIGINT},
+      associated_finacial_service_org = #{associatedFinacialServiceOrg,jdbcType=BIGINT},
+      credit_limit = #{creditLimit,jdbcType=DECIMAL},
+      margin = #{margin,jdbcType=DECIMAL},
+      bank_account_id = #{bankAccountId,jdbcType=BIGINT},
+      create_user = #{createUser,jdbcType=VARCHAR},
+      create_date = #{createDate,jdbcType=TIMESTAMP},
+      update_user = #{updateUser,jdbcType=VARCHAR},
+      update_date = #{updateDate,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>
